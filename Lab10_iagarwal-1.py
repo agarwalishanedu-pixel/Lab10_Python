@@ -85,3 +85,34 @@ def main():
         "3": "Tarzan.txt",
         "4": "treasure_island.txt"
     }
+    
+    while True:
+        #provides users with the options
+        print("")
+        print("--- Word Analyzer ---")
+        print("Please select a file to analyze:")
+        print("1. The Count of Monte Cristo")
+        print("2. A Princess of Mars")
+        print("3. Tarzan")
+        print("4. Treasure Island")
+        print("5. Exit")
+        print("")
+
+        option: str = input("Enter your choice (1-5): ")
+        print("")
+
+        if option == "5":
+            print("Goodbye!")
+            break
+
+        #check for valid input
+        elif option not in files:
+            print("Invalid choice. Please select from 1-5.")
+            print("")
+            input("Press Enter to return to the menu...")
+            continue
+
+        filename: str = files[option]
+        print(f"\nProcessing '{filename}'...")
+
+        analyzer = WordAnalyzer(filename)
