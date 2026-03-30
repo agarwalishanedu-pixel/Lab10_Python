@@ -34,10 +34,25 @@ class WordAnalyzer:
             if self.__filepath.exists():
                 file = self.__filepath.open("r", encoding = "utf-8")
             else:
-                print("File does not exist.")
-                return False
+                #Sends to the except block
+                raise FileNotFoundError
             
             #This is to Remove punctuation
             translation = str.maketrans('', '', string.punctuation)
 
+            #reading file, dividing it into line and then words (in lowercase). 
+            for line in file:
+                line = line.lower()
+                line = line.translate(translation)
+                words: list[str] = line.split()
+
+                for word in words:
+                    if word in self.__frequencies:
+                        self.__frequencies[word] += 1
+                    else:
+                        self.__frequencies[word] = 1
+
+            file.close()
+            return True
             
+      
