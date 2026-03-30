@@ -115,14 +115,17 @@ def main():
         filename: str = files[option]
         print(f"\nProcessing '{filename}'...")
 
+        #Create an instance of the object using the file name.
         analyzer = WordAnalyzer(filename)
         success: bool = analyzer.process_file()
 
+        #The process_file() method returns a true or false value after processing the file.
         if success:
             analyzer.print_report()
         
         print("")
         input("Press Enter to return to the menu...")
+
 
 if __name__ == "__main__":
     main()
