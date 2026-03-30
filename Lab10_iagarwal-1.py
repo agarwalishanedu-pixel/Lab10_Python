@@ -25,7 +25,7 @@ class WordAnalyzer:
 
     def process_file(self):
         """
-        This is the main logic, this does he counting of the words
+        This is the main logic, this does the counting of the words
         This also does the necessary exception handling
         """
 
@@ -105,7 +105,7 @@ def main():
             print("Goodbye!")
             break
 
-        #check for valid input
+        #check for invalid input
         elif option not in files:
             print("Invalid choice. Please select from 1-5.")
             print("")
@@ -116,3 +116,13 @@ def main():
         print(f"\nProcessing '{filename}'...")
 
         analyzer = WordAnalyzer(filename)
+        success: bool = analyzer.process_file()
+
+        if success:
+            analyzer.print_report()
+        
+        print("")
+        input("Press Enter to return to the menu...")
+
+if __name__ == "__main__":
+    main()
