@@ -71,3 +71,17 @@ class WordAnalyzer:
 
         for word in sorted_words:
             print(f"{word:<10} :: {self.__frequencies[word]}")
+
+
+def main():
+    """
+    This is the main function that runs front end of program.
+    """
+
+    #Create dictionary with file names
+    files: dict[str, str] = {
+        "1": "monte_cristo.txt",
+        "2": "princess_mars.txt",
+        "3": "Tarzan.txt",
+        "4": "treasure_island.txt"
+    }
