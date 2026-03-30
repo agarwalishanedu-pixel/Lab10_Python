@@ -55,4 +55,6 @@ class WordAnalyzer:
             file.close()
             return True
             
-      
+        except FileNotFoundError:
+            print("Error: File not found.")
+            return False
